@@ -1,5 +1,7 @@
 {
   "name": "article_rating",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-honoka": "^4.1.3"
+  }
 }
