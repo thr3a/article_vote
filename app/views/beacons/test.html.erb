@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>テストサイト</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <h1>ねこねこ</h1>
+    <div class="wrapper">
+    <div id="turai_vote_area"></div>
+  </ul>
+</body>
+</html>
+<style>
+.wrapper {
+  width: 800px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var before = document.getElementById("turai_vote_area");
+  if(!before) { return;}
+  var iframe = document.createElement("iframe");
+  iframe.style = "border: none;"
+  iframe.id = "myframe";
+  iframe.width = "100%";
+  iframe.height = 220;
+  iframe.src = "http://local.turai.work:3000/beacons/?id=1&url="+location.href+"&title="+document.title;
+  before.parentNode.replaceChild(iframe, before);
+});
+</script>

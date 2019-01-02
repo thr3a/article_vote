@@ -40,5 +40,6 @@ module ArticleRating
     config.active_record.default_timezone = :local
     config.time_zone = 'Tokyo'
 
+    config.action_dispatch.default_headers.delete('X-Frame-Options')
   end
 end

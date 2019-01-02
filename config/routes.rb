@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :votes
-  # get 'sessions/index'
-  # get 'sessions/logout'
-  # get 'sessions/login'
-  # get 'sessions/callback'
+  root 'votes#index'
 
+  resources :votes, only: [:index, :create]
   get '/auth/:provider/callback', to: 'sessions#callback'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :beacons, only: :index do
+    collection do
+      get :test
+    end
+  end
+
 end

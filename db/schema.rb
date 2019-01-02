@@ -10,18 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_064308) do
+ActiveRecord::Schema.define(version: 2018_12_31_080634) do
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.string "from"
-    t.string "tw_uid"
-    t.string "tw_screen_name"
-    t.string "tw_name"
-    t.string "name"
+  create_table "users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "id", limit: 12, null: false
+    t.string "from", null: false
+    t.string "tw_uid", null: false
+    t.string "tw_screen_name", null: false
+    t.string "tw_name", null: false
+    t.string "name", null: false
     t.boolean "active_flag", default: true
     t.string "email"
     t.string "tw_token"
     t.string "tw_secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "user_id", limit: 12, null: false
+    t.string "url_h", limit: 16, null: false
+    t.string "url", limit: 2048, null: false
+    t.string "article_host", null: false
+    t.string "article_path", null: false
+    t.string "title", null: false
+    t.date "date", null: false
+    t.integer "value_id", null: false
+    t.string "comment"
+    t.text "user_agent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
