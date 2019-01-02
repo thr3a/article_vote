@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if(!before) { return;}
   var iframe = document.createElement("iframe");
   iframe.style = "border: none;"
-  iframe.id = "myframe";
+  iframe.id = "turai_iframe";
   iframe.width = "100%";
   iframe.height = 220;
-  iframe.src = "http://local.turai.work:3000/beacons/?id=1&url="+location.href+"&title="+document.title;
+  iframe.d_id = "8fd9901278ef";
+  iframe.d_url = location.href;
+  iframe.d_title = document.title;
+  iframe.src = "http://local.turai.work:3000/beacons";
   before.parentNode.replaceChild(iframe, before);
 });
 </script>

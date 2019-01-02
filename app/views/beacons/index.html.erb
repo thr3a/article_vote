@@ -27,16 +27,16 @@
   <h3>この記事は参考になりましたか？</h3>
   <ul id="votes">
     <%= form_with url: votes_path, model: Vote.new, method: :post do |f| %>
-      <%= f.hidden_field :user_id, value: @id %>
-      <%= f.hidden_field :url, value: @url %>
-      <%= f.hidden_field :title, value: @title %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :url %>
+      <%= f.hidden_field :title %>
       <li>
         <%= button_tag '投票', value: '1', name: "vote[value_id]" %>
         <span class="vote_label">役に立った</span>
       </li>
       <li>
         <%= button_tag '投票', value: '-1', name: "vote[value_id]" %>
-        <span class"vote_label">役に立たなかった</span>
+        <span class="vote_label">役に立たなかった</span>
       </li>
       <li>
         <%= button_tag '投票', value: '0', name: "vote[value_id]" %>
@@ -46,4 +46,8 @@
   </ul>
 </body>
 </html>
-  
+<script>
+document.getElementById('vote_user_id').value = parent.document.getElementById('turai_iframe').d_id;
+document.getElementById('vote_url').value = parent.document.getElementById('turai_iframe').d_url;
+document.getElementById('vote_title').value = parent.document.getElementById('turai_iframe').d_title;
+</script>

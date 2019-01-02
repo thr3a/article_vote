@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @votes = Vote.all
+    @votes = current_user.votes.all
   end
 
   def create
@@ -20,6 +20,6 @@ class VotesController < ApplicationController
     end
 
     def vote_params
-      params.require(:vote).permit(:user_id, :url, :value_id, :title)
+      params.require(:vote).permit(:user_id, :url, :value_id, :title, :uid)
     end
 end

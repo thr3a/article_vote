@@ -12,14 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2018_12_31_080634) do
 
-  create_table "users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.string "id", limit: 12, null: false
-    t.string "from", null: false
+  create_table "users", id: :string, limit: 12, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "tw_uid", null: false
     t.string "tw_screen_name", null: false
     t.string "tw_name", null: false
     t.string "name", null: false
-    t.boolean "active_flag", default: true
+    t.boolean "active_flag", default: true, null: false
     t.string "email"
     t.string "tw_token"
     t.string "tw_secret"
@@ -38,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_12_31_080634) do
     t.integer "value_id", null: false
     t.string "comment"
     t.text "user_agent"
+    t.string "uid_h", limit: 20, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

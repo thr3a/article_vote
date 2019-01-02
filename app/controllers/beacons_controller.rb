@@ -3,11 +3,9 @@ class BeaconsController < ApplicationController
   layout false
 
   def index
-    @url = params[:url]
-    @id = params[:id]
-    @title = params[:title]
   end
 
+  # TODO: アクセス制限
   def test
   end
 end

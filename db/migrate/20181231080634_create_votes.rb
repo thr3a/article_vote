@@ -11,6 +11,7 @@ class CreateVotes < ActiveRecord::Migration[5.2]
       t.integer :value_id, null: false
       t.string :comment
       t.text :user_agent
+      t.string :uid_h, null: false, limit: 20
 
       t.timestamps
     end
