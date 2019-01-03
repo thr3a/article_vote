@@ -1,16 +1,16 @@
-
-<%= render 'start' %>
-
-<hr>
+<% if @votes.size == 0 %>
+  <%= render 'start' %>
+  <hr>
+<% end %>
 
 <h2>投票一覧</h2>
 
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th>評価</th>
-      <th>タイトル</th>
-      <th>最終投票日時</th>
+      <th style='width:10rem;'>評価</th>
+      <th>記事タイトル</th>
+      <th style='width:10rem;'>投票日時</th>
     </tr>
   </thead>
 

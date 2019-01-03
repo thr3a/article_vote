@@ -25,14 +25,17 @@
           <li class="nav-item">
             <%= link_to "設定", votes_path, class: "nav-link" %>
           </li>
-        </ul>
-        <% if signed_in? %>
-                <ul class="nav navbar-nav navbar-right">
-          <li>
-           <%= link_to "ログアウト", "/logout", class: "nav-link"%>
+          <li class="nav-item">
+            <%= link_to "投票フォーム設置方法", start_votes_path, class: "nav-link" %>
           </li>
-       </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li class="active"><%= link_to "ログアウト", "/logout", class: "nav-link"%></li>
+        <% else %>
+          <li class="active"><%= link_to "ログイン", "/auth/twitter", class: "nav-link"%></li>
         <% end %>
+        </ul>
       </div>
     </nav>
   </header>
