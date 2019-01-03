@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require bootstrap-honoka/dist/js/bootstrap.min.js
+//= require jquery/dist/jquery
+//= require bootstrap/dist/js/bootstrap
