@@ -6,8 +6,9 @@
 </head>
 <body>
   <h1>ねこねこ</h1>
-    <div class="wrapper">
+  <div class="wrapper">
     <div id="turai_vote_area"></div>
+  </div>
   </ul>
 </body>
 </html>
@@ -18,18 +19,11 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var before = document.getElementById("turai_vote_area");
-  if(!before) { return;}
-  var iframe = document.createElement("iframe");
-  iframe.style = "border: none;"
-  iframe.id = "turai_iframe";
-  iframe.width = "100%";
-  iframe.height = 220;
-  iframe.d_id = "8fd9901278ef";
-  iframe.d_url = location.href;
-  iframe.d_title = document.title;
-  iframe.src = "http://local.turai.work:3000/beacons";
-  before.parentNode.replaceChild(iframe, before);
-});
+<%== beacon_tag_script %>
 </script>
+
+<textarea name="" id="" cols="100" rows="20">
+<script>
+<%== beacon_tag_script_compressed %>
+</script>
+</textarea>

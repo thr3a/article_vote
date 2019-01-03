@@ -10,6 +10,19 @@ class Vote < ApplicationRecord
     self.user_agent = "dummy"
     self.uid_h = "dummy"
   end
+
+  def value_localed
+    case self.value_id
+    when -1
+      "役に立たなかった"
+    when 0
+      "どちらでもない"
+    when 1
+      "役立った"
+    else
+      "unknown"
+    end
+  end
   
 
 end

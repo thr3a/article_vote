@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @votes = current_user.votes.all
+    @votes = current_user.votes.all.order("created_at desc")
   end
 
   def create

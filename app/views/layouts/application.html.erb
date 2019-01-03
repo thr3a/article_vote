@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ArticleRating</title>
+    <title><%= Rails.application.config.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,33 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/"><%= Rails.application.config.title %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-header">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "投票一覧", votes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "設定", votes_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <% if signed_in? %>
+                <ul class="nav navbar-nav navbar-right">
+          <li>
+           <%= link_to "ログアウト", "/logout", class: "nav-link"%>
+          </li>
+       </ul>
+        <% end %>
+      </div>
+    </nav>
+  </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

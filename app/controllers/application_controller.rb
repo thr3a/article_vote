@@ -16,5 +16,7 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find_by(id: session[:login]['id'])
   end
-  
+
+  helper_method :signed_in?
+
 end

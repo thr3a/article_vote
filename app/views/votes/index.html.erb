@@ -1,7 +1,26 @@
-<%= session[:login]['id'] %>
 
-<%= link_to "ログアウト", "/logout" %>
+<%= render 'start' %>
 
-<% @votes.each do |vote| %>
-  <%= vote.url %>
-<% end %>
+<hr>
+
+<h2>投票一覧</h2>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>評価</th>
+      <th>タイトル</th>
+      <th>最終投票日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.value_localed %></td>
+        <td><%= link_to vote.title, vote.url, target: '_blank' %></td>
+        <td><%= vote.created_at.strftime('%F %R') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
